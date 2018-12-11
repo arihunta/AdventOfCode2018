@@ -4,10 +4,9 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.*
 
-fun day02_01() {
+fun day02_01(): Int {
 
     val pair = Files.readAllLines(Paths.get(ClassLoader::class.java.getResource("/arihunta/advent2018/input-day-02.txt").toURI()))
-            .stream()
             .map { it.toCharArray() }
             .map {
                 val frequencies = HashMap<Char, Int>()
@@ -18,25 +17,32 @@ fun day02_01() {
             }
             .reduce { acc: Pair<Int, Int>, it: Pair<Int, Int> ->
                 Pair(acc.first + it.first, acc.second + it.second)
-            }.orElse(Pair(0, 0))
+            }
 
-    println("The checksum is ${pair.first * pair.second}")
+    return pair.first * pair.second
 
 }
 
-fun day02_02() {
+fun day02_02(): String {
 
-    val readAllLines: MutableList<String> = Files.readAllLines(Paths.get(ClassLoader::class.java.getResource("/arihunta/advent2018/input-day-02.txt").toURI()))
-    for (i in 0 until readAllLines.size) {
-        for (j in 0 until readAllLines.size) {
-            if ((0 until readAllLines[i].length).map {
-                        if (readAllLines[i][it] == readAllLines[j][it])
-                            0
-                        else
-                            1
-                    }.sum() == 1) {
-                println("our strings are ${readAllLines[i]} and ${readAllLines[j]}")
+    val lines = Files.readAllLines(Paths.get(ClassLoader::class.java.getResource("/arihunta/advent2018/input-day-02.txt").toURI()))
+
+    for (i in 0 until lines.size) {
+        for (j in 0 until lines.size) {
+            if ((0 until lines[i].length)
+                            .map {
+                                if (lines[i][it] == lines[j][it]) {
+                                    0
+                                } else {
+                                    1
+                                }
+                            }
+                            .sum() == 1) {
+                println("our strings are ${lines[i]} and ${lines[j]}")
             }
         }
     }
+
+    return "your face"
+
 }

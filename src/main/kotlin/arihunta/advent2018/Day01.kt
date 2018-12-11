@@ -3,29 +3,34 @@ package arihunta.advent2018
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.HashSet
-import java.util.stream.Collectors
 
-fun day01_01() {
-	val lines = Files.readAllLines(Paths.get(ClassLoader::class.java.getResource("/arihunta/advent2018/input-day-01.txt").toURI()))
-	println("The sum is ${lines.stream().mapToInt(Integer::parseInt).sum()}")
+fun day01_01(): Int {
+
+    return Files.readAllLines(Paths.get(ClassLoader::class.java.getResource("/arihunta/advent2018/input-day-01.txt").toURI()))
+            .map { Integer.parseInt(it) }
+            .sum()
+
 }
 
-fun day01_02() {
+fun day01_02(): Int {
 
-	val lines = Files.readAllLines(Paths.get(ClassLoader::class.java.getResource("/arihunta/advent2018/input-day-01.txt").toURI())).stream().map(Integer::parseInt).collect(Collectors.toList())
-	val encounteredFreqs = HashSet<Int>()
+    val lines = Files.readAllLines(Paths.get(ClassLoader::class.java.getResource("/arihunta/advent2018/input-day-01.txt").toURI()))
+            .map { Integer.parseInt(it) }
 
-	var idx = 0
-	var currentFrequency = 0
+    val encounteredFrequencies = HashSet<Int>()
 
-	while (!encounteredFreqs.contains(currentFrequency)) {
-		encounteredFreqs.add(currentFrequency)
-		currentFrequency += lines[idx]
-		idx++
-		if (idx >= lines.size)
-			idx = 0
-	}
+    var idx = 0
+    var currentFrequency = 0
 
-	println("The repeated freq is $currentFrequency")
+    while (!encounteredFrequencies.contains(currentFrequency)) {
+        encounteredFrequencies.add(currentFrequency)
+        currentFrequency += lines[idx]
+        idx++
+        if (idx >= lines.size) {
+            idx = 0
+        }
+    }
+
+    return currentFrequency
 
 }
