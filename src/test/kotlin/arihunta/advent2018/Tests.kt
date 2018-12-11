@@ -36,7 +36,7 @@ object AdventTests : Spek({
         }
 
         test("Task 02") {
-            println(day03_02())
+            assertEquals(1254, day03_02())
         }
 
     }
