@@ -8,11 +8,11 @@ object AdventTests : Spek({
     group("Day 01") {
 
         test("Task 01") {
-            assertEquals(day01_01(), 427)
+            assertEquals(427, day01_01())
         }
 
         test("Task 02") {
-            assertEquals(day01_02(), 341)
+            assertEquals(341, day01_02())
         }
 
     }
@@ -20,11 +20,23 @@ object AdventTests : Spek({
     group("Day 02") {
 
         test("Task 01") {
-            assertEquals(day02_01(), 9139)
+            assertEquals(9139, day02_01())
         }
 
         test("Task 02") {
-            assertEquals(day02_02(), "uqcidadzwtnhsljvxyobmkfyr")
+            assertEquals("uqcidadzwtnhsljvxyobmkfyr", day02_02())
+        }
+
+    }
+
+    group("Day 03") {
+
+        test("Task 01") {
+            assertEquals(117505, day03_01())
+        }
+
+        test("Task 02") {
+            println(day03_02())
         }
 
     }

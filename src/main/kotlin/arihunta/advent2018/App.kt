@@ -16,5 +16,11 @@ fun main(args: Array<String>) {
 	println("Day 02-02")
 	println(day02_02())
 	println()
+	println("Day 03-01")
+	println(day03_01())
+	println()
+	println("Day 03-02")
+	println(day03_02())
+	println()
 
 }
