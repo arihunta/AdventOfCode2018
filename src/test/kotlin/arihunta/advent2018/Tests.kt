@@ -53,4 +53,16 @@ object AdventTests : Spek({
 
     }
 
+    group("Day 05") {
+
+        test("Task 01") {
+            assertEquals(9202, day05_01())
+        }
+
+        test("Task 02") {
+            assertEquals(6394, day05_02())
+        }
+
+    }
+
 })
